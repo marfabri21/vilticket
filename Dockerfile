@@ -7,4 +7,4 @@ USER net
 RUN dotnet restore && dotnet publish -c Release -o app && mv app /opt/netcore/ && rm -rf /opt/netcore/src
 EXPOSE 5123
 WORKDIR /opt/netcore/app
-ENTRYPOINT ["dotnet", "Personal.dll"]
+ENTRYPOINT ["dotnet", "Vilticket.dll"]
