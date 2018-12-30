@@ -14,6 +14,8 @@ using Vilticket.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Vilticket.Models;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace Vilticket
 {
@@ -64,6 +66,13 @@ namespace Vilticket
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+            Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot"))
+            ,
+                RequestPath = new PathString("/wwwroot")
+            });
             app.UseCookiePolicy();
 
             app.UseAuthentication();

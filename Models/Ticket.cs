@@ -14,8 +14,7 @@ namespace Vilticket.Models
         public string Detalle { get; set; }        
         public DateTime FechaCreacion { get { return DateTime.Now; } set {} }
         public TimeSpan TiempoTranscurrido { get; set; }
-        public int IdEstado { get; set; }
-        [ForeignKey("IdEstado")]
         public Estado Estado { get; set; }
+
     }
 }
